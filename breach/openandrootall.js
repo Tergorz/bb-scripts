@@ -22,7 +22,15 @@ export async function main(ns) {
       ns.sqlinject(map[i]);
     }
 
-    
+    if (!ns.hasRootAccess(map[i])) {
+
+      if (ns.getServerNumPortsRequired(map[i]) <= serverData.openPortCount) {
+        ns.nuke(map[i]);
+        ns.tprint(map[i] + " has been nuked.");
+      } else {
+        
+      }
+    }
 
       /*if(!serverData.backdoorInstalled) {
          ns.installBackdoor(target);
